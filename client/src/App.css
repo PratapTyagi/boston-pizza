@@ -1,0 +1,9 @@
+* {
+  --theame-color: rgb(245, 148, 83);
+  color: whitesmoke;
+}
+
+body {
+  background-color: black;
+  text-align: center;
+}

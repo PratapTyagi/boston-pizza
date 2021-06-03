@@ -1,0 +1,88 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  margin-bottom: 20px;
+  background-color: rgb(22, 21, 21);
+}
+
+.logo > .link > h2 {
+  color: var(--theame-color);
+  cursor: pointer;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.right > .link > h6 {
+  cursor: pointer;
+  padding: 30px 10px;
+  margin: 0;
+  font-size: 15px;
+}
+
+.right > .link > h6:hover {
+  background-color: var(--theame-color);
+}
+
+.right > .link > .cart {
+  cursor: pointer;
+  padding: 31px 10px;
+  margin: 0;
+  font-size: 15px;
+}
+
+.right > .link > .cart:hover {
+  background-color: var(--theame-color);
+  transition: background-color 0.9s ease-out;
+}
+
+.dropdown-toggle {
+  color: whitesmoke;
+  text-decoration: none;
+  padding: 30px 10px;
+  font-size: 14px;
+}
+
+.dropdown-toggle:hover {
+  background-color: var(--theame-color);
+  transition: background-color 0.9s ease-out;
+  color: whitesmoke;
+}
+
+.dropdown-menu {
+  background-color: rgb(22, 21, 21);
+}
+
+.show > .dropdown-toggle {
+  color: var(--theame-color);
+}
+
+.show > .dropdown-toggle:hover {
+  color: whitesmoke;
+}
+
+.dropdown-menu > .dropdown-item {
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: lighter;
+  border-bottom: 0.1px solid gray;
+}
+
+.dropdown-menu > .dropdown-item:hover {
+  color: black;
+}
+
+@media screen and (max-width: 450px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .logo {
+    padding-top: 20px;
+  }
+}
