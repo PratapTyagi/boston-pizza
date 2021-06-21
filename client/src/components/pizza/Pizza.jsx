@@ -15,9 +15,20 @@ const Pizza = ({ pizza }) => {
 
   const dispatch = useDispatch();
 
-  const addtoCart = () => dispatch(addToCart(pizza, quantity, varient));
-
-  console.log(pizza.name === "Pizza Margherita" && pizza);
+  const addtoCart = () => {
+    const newPizza = {
+      category: pizza.category,
+      createdAt: pizza.createdAt,
+      description: pizza.description,
+      pizza: pizza.image,
+      name: pizza.name,
+      prices: pizza.prices,
+      updatedAt: pizza.updatedAt,
+      varients: pizza.varients,
+      id: pizza._id,
+    };
+    dispatch(addToCart(newPizza, quantity, varient));
+  };
 
   return (
     <div className="pizza">
