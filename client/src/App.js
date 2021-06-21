@@ -7,19 +7,27 @@ import Register from "./screens/authentication/Register";
 import OrdersScreen from "./screens/orders/OrdersScreen";
 import AdminScreen from "./screens/admin/AdminScreen";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "./App.css";
 function App() {
+  const { currentUser } = useSelector((state) => state.loginUserReducer);
   return (
     <div className="app">
       <Router>
         <Navbar />
-        <Route path="/" exact component={Home} />
-        <Route path="/cart" exact component={Cart} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/register" exact component={Register} />
-        <Route path="/orders" exact component={OrdersScreen} />
-        <Route path="/admin" component={AdminScreen} />
+        {currentUser ? (
+          <>
+            <Route path="/" exact component={Home} />
+            <Route path="/cart" exact component={Cart} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" exact component={Register} />
+            <Route path="/orders" exact component={OrdersScreen} />
+            <Route path="/admin" component={AdminScreen} />
+          </>
+        ) : (
+          <Route path="/login" exact component={Login} />
+        )}
       </Router>
     </div>
   );
