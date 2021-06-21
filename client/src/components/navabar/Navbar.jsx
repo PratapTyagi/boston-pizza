@@ -11,7 +11,11 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <Link className="link" to="/" style={{ textDecoration: "none" }}>
+        <Link
+          className="link"
+          to={currentUser ? "/" : "/login"}
+          style={{ textDecoration: "none" }}
+        >
           <h2>вσѕтση ριzzα</h2>
         </Link>
       </div>
@@ -21,35 +25,51 @@ const Navbar = () => {
             <h6>Login</h6>
           </Link>
         ) : (
-          <div className="dropdown">
-            <a
-              className="dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              {currentUser.name}
-            </a>
-
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <Link className="dropdown-item" to="/orders">
-                Orders
-              </Link>
+          <>
+            {currentUser.isAdmin && (
               <Link
-                className="dropdown-item"
-                href="#"
-                onClick={() => dispatch(logoutUser())}
+                className="link"
+                to="/admin"
+                style={{ textDecoration: "none" }}
               >
-                Logout
+                <h6>AdminPannel</h6>
               </Link>
+            )}
+            <div className="dropdown">
+              <a
+                className="dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {currentUser.name}
+              </a>
+
+              <div
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <Link className="dropdown-item" to="/orders">
+                  Orders
+                </Link>
+                <Link
+                  className="dropdown-item"
+                  href="#"
+                  onClick={() => dispatch(logoutUser())}
+                >
+                  Logout
+                </Link>
+              </div>
             </div>
-          </div>
+          </>
         )}
-        <Link className="link" to="/cart" style={{ textDecoration: "none" }}>
-          <h6 className="cart">Cart {cartItems.length}</h6>
-        </Link>
+        {currentUser && (
+          <Link className="link" to="/cart" style={{ textDecoration: "none" }}>
+            <h6 className="cart">Cart {cartItems.length}</h6>
+          </Link>
+        )}
       </div>
     </div>
   );
