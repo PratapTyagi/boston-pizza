@@ -56,7 +56,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   className="dropdown-item"
-                  href="#"
+                  to="/login"
                   onClick={() => dispatch(logoutUser())}
                 >
                   Logout
