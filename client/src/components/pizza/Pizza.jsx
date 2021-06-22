@@ -3,6 +3,7 @@ import { Modal } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../actions/cartAction";
+import addAudio from "../../ascets/addAudio.wav";
 
 import "./Pizza.css";
 const Pizza = ({ pizza }) => {
@@ -14,6 +15,8 @@ const Pizza = ({ pizza }) => {
   const handleClose = () => setShow(false);
 
   const dispatch = useDispatch();
+
+  const audio = new Audio(addAudio);
 
   const addtoCart = () => {
     const newPizza = {
@@ -28,6 +31,7 @@ const Pizza = ({ pizza }) => {
       id: pizza._id,
     };
     dispatch(addToCart(newPizza, quantity, varient));
+    audio.play();
   };
 
   return (
