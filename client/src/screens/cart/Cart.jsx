@@ -25,7 +25,7 @@ const Cart = () => {
       </div>
       <div className="cart__subtotal">
         <h4>Subtotal: ₹ {subtotal}</h4>
-        <Checkout subtotal={subtotal} />
+        {cartItems.length ? <Checkout subtotal={subtotal} /> : ""}
       </div>
     </div>
   );
