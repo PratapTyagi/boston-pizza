@@ -6,6 +6,8 @@ const userSchema = mongoose.Schema(
     email: { type: String, require: true },
     password: { type: String, require: true },
     isAdmin: { type: Boolean, require: true, default: false },
+    resetToken: String,
+    expireToken: Date,
   },
   {
     timestamp: true,
