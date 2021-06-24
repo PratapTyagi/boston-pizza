@@ -1,5 +1,6 @@
 .login_page {
   margin-top: 2%;
+  font-weight: lighter !important;
 }
 
 .login {
@@ -11,7 +12,8 @@
 }
 
 .login > h3 {
-  padding: 20px 0 0 40px;
+  padding: 20px 0 0 28px;
+  font-weight: 400;
 }
 
 .login__form {
@@ -20,22 +22,20 @@
   padding: 10px 0 0 10px;
 }
 
-.login__form > p {
-  margin: 0;
-  padding: 10px 10px 5px 20px;
-  font-size: 13px;
-  color: gray;
-}
-
 .login__form > input {
   width: 85%;
   margin-left: 20px;
   padding: 10px;
-  font-weight: 2px;
+  padding-left: 0;
   outline: none;
   border: none;
-  color: grey;
-  background-color: black;
+  color: lightgray;
+  background-color: inherit;
+  border-bottom: 1px solid grey;
+}
+
+.login__form > input:focus {
+  border-bottom: 1px solid var(--theame-color);
 }
 
 .login__form > button {
@@ -56,6 +56,8 @@
   margin-left: 15px;
   font-size: 14px;
   color: gray;
+  display: flex;
+  flex-direction: column;
 }
 
 .register__user__signUp {

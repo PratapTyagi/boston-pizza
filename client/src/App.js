@@ -19,7 +19,7 @@ const Routing = () => {
 
   useEffect(() => {
     if (
-      !currentUser &&
+      !currentUser ||
       history.location.pathname.startsWith("reset-password")
     ) {
       history.push("/login");

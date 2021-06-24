@@ -49,8 +49,8 @@ const Login = () => {
           </button>
         </form>
         <p className="register__user">
-          Don't have an account
           <Link to="/register" style={{ textDecoration: "none" }}>
+            <span style={{ color: "gray" }}>Don't have an account</span>
             <strong className="register__user__signUp"> Sign Up</strong>
           </Link>
         </p>

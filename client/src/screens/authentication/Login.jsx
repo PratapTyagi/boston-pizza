@@ -16,8 +16,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const loginState = useSelector((state) => state.loginUserReducer);
 
-  console.log(loginState);
-
   const { loading, error } = loginState;
 
   useEffect(() => {
@@ -44,7 +42,6 @@ const Login = () => {
         {error && <Error error=" Invalid information" />}
         <h3>Login</h3>
         <form className="login__form">
-          <p>Email</p>
           <input
             type="text"
             placeholder="Email"
@@ -53,7 +50,6 @@ const Login = () => {
             required
           />
 
-          <p>Password</p>
           <input
             type="password"
             placeholder="Password"
@@ -66,9 +62,16 @@ const Login = () => {
           </button>
         </form>
         <p className="register__user">
-          Don't have an account
-          <Link to="/register" style={{ textDecoration: "none" }}>
+          <Link
+            to="/register"
+            style={{ textDecoration: "none", marginBottom: "8px" }}
+          >
+            <span style={{ color: "gray" }}>Don't have an account</span>
             <strong className="register__user__signUp"> Sign Up</strong>
+          </Link>
+          <Link to="/reset-password" style={{ textDecoration: "none" }}>
+            <span style={{ color: "gray" }}>Don't remember pass</span>
+            <strong className="register__user__signUp"> Reset Password</strong>
           </Link>
         </p>
       </div>
