@@ -6,6 +6,7 @@ import Login from "./screens/authentication/Login";
 import Register from "./screens/authentication/Register";
 import OrdersScreen from "./screens/orders/OrdersScreen";
 import AdminScreen from "./screens/admin/AdminScreen";
+import ResetPassword from "./screens/resetPassword/ResetPassword";
 import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -17,7 +18,10 @@ const Routing = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if (!currentUser) {
+    if (
+      !currentUser &&
+      history.location.pathname.startsWith("reset-password")
+    ) {
       history.push("/login");
     }
   }, []);
@@ -30,6 +34,7 @@ const Routing = () => {
       <Route path="/register" exact component={Register} />
       <Route path="/orders" exact component={OrdersScreen} />
       <Route path="/admin" component={AdminScreen} />
+      <Route path="/reset-password" component={ResetPassword} />
     </>
   );
 };
