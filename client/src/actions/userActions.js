@@ -5,7 +5,6 @@ export const registerUser = (user) => async (dispatch) => {
   try {
     const res = await axios.post("/api/users/register", user);
     dispatch({ type: "USER_REGISTER_SUCCESS" });
-    window.location.href = "/login";
   } catch (error) {
     dispatch({ type: "USER_REGISTER_FAILED", payload: error });
   }

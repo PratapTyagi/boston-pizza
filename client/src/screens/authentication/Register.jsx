@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { registerUser } from "../../actions/userActions";
 import Error from "../../components/error/Error";
 import Success from "../../components/success/Success";
@@ -18,6 +18,7 @@ const Register = () => {
   const { loading, success, error } = state;
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const register = () => {
     if (
@@ -38,6 +39,7 @@ const Register = () => {
         password,
       };
       dispatch(registerUser(user));
+      history.push("/login");
     }
   };
 
