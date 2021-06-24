@@ -20,8 +20,17 @@ const Register = () => {
   const dispatch = useDispatch();
 
   const register = () => {
+    if (
+      !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+      )
+    ) {
+      alert("Email Invalid");
+      return;
+    }
     if (password !== cpassword) {
       alert("Password not matched");
+      return;
     } else {
       const user = {
         name,
