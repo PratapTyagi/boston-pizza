@@ -41,7 +41,6 @@ const Register = () => {
 
         <h3>Register</h3>
         <form className="register__form">
-          <p>Your name</p>
           <input
             type="text"
             placeholder="Full Name"
@@ -51,7 +50,6 @@ const Register = () => {
             autoComplete="false"
           />
 
-          <p>Email</p>
           <input
             type="text"
             placeholder="Email"
@@ -60,7 +58,6 @@ const Register = () => {
             required
           />
 
-          <p>Password</p>
           <input
             type="password"
             placeholder="Password"
@@ -69,7 +66,6 @@ const Register = () => {
             required
           />
 
-          <p>Confirm Password</p>
           <input
             type="password"
             placeholder="Confirm Password"
@@ -81,8 +77,8 @@ const Register = () => {
           <button onClick={register}>Continue</button>
         </form>
         <p className="login__user">
-          Already have an account
           <Link to="/login" style={{ textDecoration: "none" }}>
+            <span style={{ color: "gray" }}>Already have an account</span>
             <strong className="login__user__login"> Sign In</strong>
           </Link>
         </p>

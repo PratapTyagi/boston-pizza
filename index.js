@@ -8,6 +8,7 @@ import order from "./routes/orders.js";
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/pizzas", pizzaRoute);
 app.use("/api/users", userRoute);
