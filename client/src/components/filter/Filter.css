@@ -36,7 +36,7 @@
 }
 
 .filter__inner > button {
-  border: 1px solid var(--theame-color);
+  border: 2px solid var(--theame-color);
   color: var(--theame-color);
   background-color: inherit;
   padding: 8px;

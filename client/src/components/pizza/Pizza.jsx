@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../actions/cartAction";
 import addAudio from "../../ascets/addAudio.wav";
 
