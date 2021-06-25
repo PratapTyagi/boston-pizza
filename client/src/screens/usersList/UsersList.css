@@ -1,3 +1,13 @@
 .usersList > h5 {
   padding: 20px;
 }
+
+.table-responsive::-webkit-scrollbar {
+  display: none;
+}
+.usersList > .table {
+  width: 20px !important;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  background-color: blue;
+}

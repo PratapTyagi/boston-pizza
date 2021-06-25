@@ -20,38 +20,40 @@ const UsersList = () => {
       <h5>Users List</h5>
       {loading && <Loading />}
       {error && <Error error=" Something went wrong" />}
-      <table className="table table-bordered">
-        <thead>
-          <tr>
-            <th>User Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users &&
-            users.map((user) => {
-              return (
-                <tr key={user._id}>
-                  <td>{user._id}</td>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>
-                    {!user.isAdmin ? (
-                      <i
-                        className="bi bi-trash"
-                        onClick={() => dispatch(deleteUser(user._id))}
-                      ></i>
-                    ) : (
-                      <h6>Admin</h6>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
+      <div className="table-responsive">
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>User Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users &&
+              users.map((user) => {
+                return (
+                  <tr key={user._id}>
+                    <td>{user._id}</td>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>
+                      {!user.isAdmin ? (
+                        <i
+                          className="bi bi-trash"
+                          onClick={() => dispatch(deleteUser(user._id))}
+                        ></i>
+                      ) : (
+                        <h6>Admin</h6>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

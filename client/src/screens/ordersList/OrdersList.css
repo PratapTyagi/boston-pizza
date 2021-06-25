@@ -2,6 +2,10 @@
   padding: 20px;
 }
 
+.table-responsive::-webkit-scrollbar {
+  display: none;
+}
+
 .table {
   background-color: rgb(21, 20, 20);
   border: 1px solid gray;
