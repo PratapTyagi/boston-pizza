@@ -20,21 +20,21 @@
   padding: 10px 0 0 10px;
 }
 
-.addNewPizza__form > p {
-  margin: 0;
-  padding: 10px 10px 5px 22px;
-  font-size: 13px;
-}
-
 .addNewPizza__form > input {
   width: 85%;
   margin-left: 20px;
   padding: 10px;
+  padding-left: 0;
   font-weight: 2px;
   outline: none;
   border: none;
-  color: grey;
-  background-color: black;
+  color: lightgray;
+  background-color: initial;
+  border-bottom: 1px solid grey;
+}
+
+.addNewPizza__form > input:focus {
+  border-bottom: 1px solid var(--theame-color);
 }
 
 .addNewPizza__form > .addNewPizza__form__link > button {

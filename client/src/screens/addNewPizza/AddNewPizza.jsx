@@ -49,71 +49,67 @@ const AddNewPizza = () => {
         {error && <Error error="Something went wrong" />}
         {success && <Success success="New Pizza added successfully" />}
         <form className="addNewPizza__form">
-          <p>Pizza Name</p>
           <input
             type="text"
+            placeholder="Pizza Name"
             value={name}
             onChange={(e) => setname(e.target.value)}
             required
             autoComplete="false"
           />
 
-          <p>Small Varient Price</p>
           <input
             type="text"
             value={small}
             onChange={(e) => setsmall(e.target.value)}
             required
             autoComplete="false"
-            placeholder=""
+            placeholder="Small Varient Price"
           />
 
-          <p>Medium Varient Price</p>
           <input
             type="text"
             value={medium}
             onChange={(e) => setmedium(e.target.value)}
             required
             autoComplete="false"
-            placeholder=""
+            placeholder="Medium Varient Price"
           />
-          <p>Large Varient Price</p>
+
           <input
             type="text"
             value={large}
             onChange={(e) => setlarge(e.target.value)}
             required
             autoComplete="false"
-            placeholder=""
+            placeholder="Large Varient Price"
           />
-          <p>Description</p>
+
           <input
             type="text"
             value={description}
             onChange={(e) => setdescription(e.target.value)}
             required
             autoComplete="false"
-            placeholder=""
+            placeholder="Description"
           />
 
-          <p>Image URL</p>
           <input
             type="text"
             required
             autoComplete="false"
             value={image}
             onChange={(e) => setimage(e.target.value)}
-            placeholder=""
+            placeholder="Image URL"
           />
 
-          <p>Category</p>
           <input
             type="text"
             required
             autoComplete="false"
             value={category}
             onChange={(e) => setcategory(e.target.value)}
-            placeholder=""
+            placeholder="Category: veg / nonveg"
           />
 
           <Link
