@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 import axios from "axios";
 
 const NewPassword = () => {
   const [password, setpassword] = useState("");
+  const history = useHistory();
 
   const { token } = useParams();
   const update = async (e) => {
@@ -12,11 +13,10 @@ const NewPassword = () => {
 
     await axios
       .post("/api/users/new-password", { password, token })
-      .then((user) => {
-        if (user.error) {
-          return alert(`Error ${user.error}`);
-        }
-        alert(`Check your email`);
+      .then(({ data }) => {
+        if (data.error) alert(`Error ${data.error}`);
+        else alert(`${data.message}`);
+        history.push("/login");
       })
       .catch((error) => {
         console.log(`Something went wrong ${error}`);
@@ -26,10 +26,10 @@ const NewPassword = () => {
   return (
     <div className="login_page">
       <div className="login">
-        <h3>Reset Password</h3>
+        <h3>Update Password</h3>
         <form className="login__form">
           <input
-            type="text"
+            type="password"
             placeholder="New Password"
             value={password}
             onChange={(e) => setpassword(e.target.value)}

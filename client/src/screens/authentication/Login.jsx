@@ -71,7 +71,7 @@ const Login = () => {
           </Link>
           <Link to="/reset-password" style={{ textDecoration: "none" }}>
             <span style={{ color: "gray" }}>Don't remember pass</span>
-            <strong className="register__user__signUp"> Reset Password</strong>
+            <strong className="register__user__signUp"> Forgot Password</strong>
           </Link>
         </p>
       </div>

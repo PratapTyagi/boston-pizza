@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-import Loading from "../../components/loading/Loading";
-import Error from "../../components/error/Error";
-
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -20,11 +17,9 @@ const Login = () => {
     }
     await axios
       .post("/api/users/reset-password", { email })
-      .then((user) => {
-        if (user.error) {
-          return alert(`Error ${user.error}`);
-        }
-        alert(`Message ${user.message}`);
+      .then(({ data }) => {
+        if (data.error) alert(`${data.error}`);
+        else alert(`${data.message}`);
       })
       .catch((error) => {
         console.log(`Something went wrong ${error}`);
