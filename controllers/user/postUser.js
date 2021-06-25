@@ -1,14 +1,30 @@
 import User from "../../models/userModel.js";
-export const postUser = async (req, res) => {
-  const { name, email, password } = req.body;
-  const newUser = new User({ name, email, password });
+import bcrypt from "bcryptjs";
 
-  try {
-    newUser.save();
-    res.send("User Registered successfully");
-  } catch (error) {
-    res.status(400).json({ message: error });
+export const postUser = (req, res) => {
+  const { name, email, password } = req.body;
+
+  if (!name || !email || !password) {
+    return res.json({ error: "Please add all the fields" });
   }
+
+  User.findOne({ email })
+    .then((user) => {
+      if (user) {
+        return res.json({ error: "User already exists" });
+      }
+      bcrypt
+        .hash(password, 12)
+        .then((hashedPassword) => {
+          const newUser = new User({ name, email, password: hashedPassword });
+
+          newUser.save().then((result) => {
+            res.json({ message: "Successfully registered" });
+          });
+        })
+        .catch((error) => console.log(error));
+    })
+    .catch((error) => console.log(error));
 };
 
 export const postLogin = async (req, res) => {
