@@ -42,7 +42,7 @@ const Register = () => {
     } else {
       const user = {
         name,
-        email,
+        email: email.toLowerCase(),
         password,
       };
       dispatch(registerUser(user));

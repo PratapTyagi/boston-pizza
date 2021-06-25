@@ -27,7 +27,7 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
     const userDetails = {
-      email,
+      email: email.toLowerCase(),
       password,
     };
     dispatch(loginUser(userDetails));
