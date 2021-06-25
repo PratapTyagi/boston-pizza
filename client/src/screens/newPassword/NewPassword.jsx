@@ -11,6 +11,15 @@ const NewPassword = () => {
   const update = async (e) => {
     e.preventDefault();
 
+    if (
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+        password
+      )
+    )
+      return alert(
+        "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
+      );
+
     await axios
       .post("/api/users/new-password", { password, token })
       .then(({ data }) => {
