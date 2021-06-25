@@ -7,6 +7,7 @@ import Register from "./screens/authentication/Register";
 import OrdersScreen from "./screens/orders/OrdersScreen";
 import AdminScreen from "./screens/admin/AdminScreen";
 import ResetPassword from "./screens/resetPassword/ResetPassword";
+import NewPassword from "./screens/newPassword/NewPassword";
 import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -19,8 +20,8 @@ const Routing = () => {
 
   useEffect(() => {
     if (
-      !currentUser ||
-      history.location.pathname.startsWith("reset-password")
+      !currentUser &&
+      !history.location.pathname.startsWith("/reset-password")
     ) {
       history.push("/login");
     }
@@ -34,7 +35,8 @@ const Routing = () => {
       <Route path="/register" exact component={Register} />
       <Route path="/orders" exact component={OrdersScreen} />
       <Route path="/admin" component={AdminScreen} />
-      <Route path="/reset-password" component={ResetPassword} />
+      <Route path="/reset-password" exact component={ResetPassword} />
+      <Route path="/reset-password/:token" exact component={NewPassword} />
     </>
   );
 };
