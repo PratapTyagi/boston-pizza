@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import User from "../models/userModel.js";
+import User from "../../models/userModel.js";
 import nodemailer from "nodemailer";
 import sg from "nodemailer-sendgrid-transport";
 

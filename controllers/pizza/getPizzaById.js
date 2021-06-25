@@ -1,4 +1,4 @@
-import Pizzas from "../models/pizzaModel.js";
+import Pizzas from "../../models/pizzaModel.js";
 
 export const getPizzaById = async (req, res) => {
   const id = req.body.pizzaid;

@@ -1,4 +1,4 @@
-import User from "../models/userModel.js";
+import User from "../../models/userModel.js";
 
 export const newPassword = (req, res) => {
   const newPass = req.body.password;

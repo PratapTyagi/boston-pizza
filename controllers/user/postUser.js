@@ -1,4 +1,4 @@
-import User from "../models/userModel.js";
+import User from "../../models/userModel.js";
 export const postUser = async (req, res) => {
   const { name, email, password } = req.body;
   const newUser = new User({ name, email, password });

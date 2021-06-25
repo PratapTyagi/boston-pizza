@@ -1,4 +1,4 @@
-import Model from "../models/pizzaModel.js";
+import Model from "../../models/pizzaModel.js";
 
 export const getPizzas = async (req, res) => {
   try {

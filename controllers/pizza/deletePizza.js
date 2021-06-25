@@ -1,4 +1,4 @@
-import Pizza from "../models/pizzaModel.js";
+import Pizza from "../../models/pizzaModel.js";
 export const deletePizza = async (req, res) => {
   const pizzaid = req.body.pizzaid;
   try {

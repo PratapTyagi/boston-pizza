@@ -1,6 +1,6 @@
 import stripeObj from "stripe";
 import { v4 as uuidv4 } from "uuid";
-import Order from "../models/orderModel.js";
+import Order from "../../models/orderModel.js";
 
 const stripe = stripeObj(
   "sk_test_51IwlHJSGzj1nyQzAkjoDjIlgQ1LVWiy7iZYq5gFvvyIUkVYhFQOlKqx8PxtCK3ZyZRqG85gmR2WmvkiV1sFVVXtd00h1gCXzxD"

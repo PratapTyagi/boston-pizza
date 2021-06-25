@@ -1,11 +1,11 @@
 import express from "express";
 const router = express.Router();
 
-import { getPizzas } from "../controllers/getPizzas.js";
-import { postPizza } from "../controllers/postPizza.js";
-import { getPizzaById } from "../controllers/getPizzaById.js";
-import { editPizza } from "../controllers/editPizza.js";
-import { deletePizza } from "../controllers/deletePizza.js";
+import { getPizzas } from "../controllers/pizza/getPizzas.js";
+import { postPizza } from "../controllers/pizza/postPizza.js";
+import { getPizzaById } from "../controllers/pizza/getPizzaById.js";
+import { editPizza } from "../controllers/pizza/editPizza.js";
+import { deletePizza } from "../controllers/pizza/deletePizza.js";
 
 router.get("/getpizzas", getPizzas);
 router.post("/addpizzas", postPizza);
