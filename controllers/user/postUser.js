@@ -27,23 +27,25 @@ export const postUser = (req, res) => {
     .catch((error) => console.log(error));
 };
 
-export const postLogin = async (req, res) => {
+export const postLogin = (req, res) => {
   const { email, password } = req.body;
 
-  try {
-    const user = await User.find({ email, password });
-    if (user.length > 0) {
-      const currUser = {
-        name: user[0].name,
-        email: user[0].email,
-        isAdmin: user[0].isAdmin,
-        _id: user[0]._id,
-      };
-      res.send(currUser);
-    } else {
-      res.status(400).json({ message: "User Login Failed" });
-    }
-  } catch (error) {
-    res.status(501).json({ message: error });
-  }
+  User.findOne({ email })
+    .then((user) => {
+      if (!user) return res.json({ error: "Invalid email or password" });
+      bcrypt.compare(password, user.password).then((doMatch) => {
+        if (!doMatch) {
+          return res.json({ error: "Invalid email or password" });
+        }
+        const { name, email, isAdmin, _id } = user;
+        const currUser = {
+          name,
+          email,
+          isAdmin,
+          _id,
+        };
+        res.send(currUser);
+      });
+    })
+    .catch((error) => console.log(error));
 };
