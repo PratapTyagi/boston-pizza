@@ -1,5 +1,16 @@
 import User from "../../models/userModel.js";
 import bcrypt from "bcryptjs";
+import nodemailer from "nodemailer";
+import sg from "nodemailer-sendgrid-transport";
+
+var client = nodemailer.createTransport(
+  sg({
+    auth: {
+      api_key:
+        "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",
+    },
+  })
+);
 
 export const postUser = (req, res) => {
   const { name, email, password } = req.body;
@@ -19,6 +30,12 @@ export const postUser = (req, res) => {
           const newUser = new User({ name, email, password: hashedPassword });
 
           newUser.save().then((result) => {
+            client.sendMail({
+              from: "noreplybostonpizza@gmail.com",
+              to: result.email,
+              subject: "Greetings",
+              html: `<h2>Welcome🙏 to the family ${result.name}</h2>`,
+            });
             res.json({ message: "Successfully registered" });
           });
         })
