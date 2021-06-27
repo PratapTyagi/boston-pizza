@@ -8,9 +8,8 @@ import OrdersScreen from "./screens/orders/OrdersScreen";
 import AdminScreen from "./screens/admin/AdminScreen";
 import ResetPassword from "./screens/resetPassword/ResetPassword";
 import NewPassword from "./screens/newPassword/NewPassword";
-import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
+import { HashRouter as Router, Route, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 import "./App.css";
 import { useEffect } from "react";
 
