@@ -21,9 +21,22 @@ const Navbar = () => {
       </div>
       <div className="right">
         {!currentUser ? (
-          <Link className="link" to="/login" style={{ textDecoration: "none" }}>
-            <h6>Login</h6>
-          </Link>
+          <>
+            <Link
+              className="link"
+              to="/login"
+              style={{ textDecoration: "none" }}
+            >
+              <h6>Sign In</h6>
+            </Link>
+            <Link
+              className="link"
+              to="/register"
+              style={{ textDecoration: "none" }}
+            >
+              <h6>Sign Up</h6>
+            </Link>
+          </>
         ) : (
           <>
             {currentUser.isAdmin && (
