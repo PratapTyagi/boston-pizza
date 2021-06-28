@@ -2,12 +2,12 @@ import crypto from "crypto";
 import User from "../../models/userModel.js";
 import nodemailer from "nodemailer";
 import sg from "nodemailer-sendgrid-transport";
+import keys from "../../config/keys.js";
 
 var client = nodemailer.createTransport(
   sg({
     auth: {
-      api_key:
-        "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",
+      api_key: keys.SENDGRID_KEY,
     },
   })
 );

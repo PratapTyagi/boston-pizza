@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import keys from "./config/keys.js";
 
-const mongoURL = `mongodb+srv://PratapTyagi:pratap@pizza111@cluster0.kxikx.mongodb.net/mernpizza`;
+const mongoURL = keys.MONGO_URL;
 
 mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
