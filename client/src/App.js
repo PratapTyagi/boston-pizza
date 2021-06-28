@@ -9,12 +9,12 @@ import AdminScreen from "./screens/admin/AdminScreen";
 import ResetPassword from "./screens/resetPassword/ResetPassword";
 import NewPassword from "./screens/newPassword/NewPassword";
 import { HashRouter as Router, Route, useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 import "./App.css";
 import { useEffect } from "react";
 
+let currentUser;
 const Routing = () => {
-  const { currentUser } = useSelector((state) => state.loginUserReducer);
+  currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const history = useHistory();
 
   useEffect(() => {
@@ -28,14 +28,29 @@ const Routing = () => {
 
   return (
     <>
-      <Route path="/" exact component={Home} />
-      <Route path="/cart" exact component={Cart} />
-      <Route path="/login" exact component={Login} />
-      <Route path="/register" exact component={Register} />
-      <Route path="/orders" exact component={OrdersScreen} />
-      <Route path="/admin" component={AdminScreen} />
-      <Route path="/reset-password" exact component={ResetPassword} />
-      <Route path="/reset-password/:token" exact component={NewPassword} />
+      {!currentUser ? (
+        <>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/reset-password" exact component={ResetPassword} />
+          <Route path="/reset-password/:token" exact component={NewPassword} />
+        </>
+      ) : (
+        <>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/reset-password" exact component={ResetPassword} />
+          <Route path="/reset-password/:token" exact component={NewPassword} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/orders" exact component={OrdersScreen} />
+          <Route
+            path="/admin"
+            component={currentUser && currentUser.isAdmin ? AdminScreen : Home}
+          />
+        </>
+      )}
     </>
   );
 };
