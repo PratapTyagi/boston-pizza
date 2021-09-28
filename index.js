@@ -1,6 +1,8 @@
 import express from "express";
-import db from "./db.js";
+import dotenv from "dotenv";
+dotenv.config();
 import path from "path";
+import mongoose from "mongoose";
 
 import pizzaRoute from "./routes/pizzaRoute.js";
 import userRoute from "./routes/userRoute.js";
@@ -20,6 +22,19 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client/build/index.html"));
   });
 }
+
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then((connected) => {
+    console.log(`Database got connected`);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 const PORT = process.env.PORT || 5000;
 
