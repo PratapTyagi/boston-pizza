@@ -24,7 +24,6 @@ const OrdersList = () => {
         <table className="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>Order Id</th>
               <th>Email</th>
               <th>Amount</th>
               <th>Date</th>
@@ -36,7 +35,6 @@ const OrdersList = () => {
               orders.map((order) => {
                 return (
                   <tr key={order._id}>
-                    <td>{order._id}</td>
                     <td>{order.email}</td>
                     <td>{order.orderAmount}</td>
                     <td>{order.createdAt.substring(0, 10)}</td>

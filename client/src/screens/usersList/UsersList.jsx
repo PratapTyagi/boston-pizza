@@ -24,7 +24,6 @@ const UsersList = () => {
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th>User Id</th>
               <th>Name</th>
               <th>Email</th>
               <th>Delete</th>
@@ -35,7 +34,6 @@ const UsersList = () => {
               users.map((user) => {
                 return (
                   <tr key={user._id}>
-                    <td>{user._id}</td>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>
