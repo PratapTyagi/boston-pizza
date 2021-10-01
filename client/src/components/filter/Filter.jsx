@@ -14,14 +14,18 @@ const Filter = () => {
           type="text"
           placeholder="Search Pizza"
           value={searchKey}
-          onChange={(e) => setSearchKey(e.target.value)}
+          onChange={(e) => setSearchKey(e.target.value.toLowerCase())}
         />
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="all">All</option>
           <option value="veg">Veg</option>
           <option value="nonveg">Non Veg</option>
         </select>
-        <button onClick={() => dispatch(filterPizza(searchKey, category))}>
+        <button onClick={() => {
+          dispatch(filterPizza(searchKey, category))
+          setSearchKey("")
+          setCategory("")
+        }}>
           Filter
         </button>
       </div>

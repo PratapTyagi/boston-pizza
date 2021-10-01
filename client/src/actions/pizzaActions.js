@@ -10,21 +10,13 @@ export const getAllPizza = () => async (dispatch) => {
   }
 };
 
-export const filterPizza = (searchKey, category) => async (dispatch) => {
+export const filterPizza = (query, category) => async (dispatch) => {
   dispatch({ type: "GET_PIZZAS_REQUEST" });
   let filteredPizza;
 
   try {
-    const { data } = await axios.get("/api/pizzas/getpizzas");
-    filteredPizza = data.filter((pizza) =>
-      pizza.name.toLowerCase().includes(searchKey)
-    );
-    if (category != "all") {
-      filteredPizza = data.filter(
-        (pizza) => pizza.category.toLowerCase() == category
-      );
-    }
-    dispatch({ type: "GET_PIZZAS_SUCCESS", payload: filteredPizza });
+    const {data}  = await axios.post("/api/pizzas/filter-pizza", {query, category});
+    dispatch({ type: "GET_PIZZAS_SUCCESS", payload: data });
   } catch (error) {
     dispatch({ type: "GET_PIZZAS_FAILED", payload: error });
   }
