@@ -1,15 +1,5 @@
 import crypto from "crypto";
 import User from "../../models/userModel.js";
-import nodemailer from "nodemailer";
-import sg from "nodemailer-sendgrid-transport";
-
-var client = nodemailer.createTransport(
-  sg({
-    auth: {
-      api_key: process.env.SENDGRID_KEY,
-    },
-  })
-);
 
 export const resetPassword = (req, res) => {
   crypto.randomBytes(32, (err, buffer) => {
@@ -26,15 +16,6 @@ export const resetPassword = (req, res) => {
         user.resetToken = token;
         user.expireToken = Date.now() + 3600000;
         user.save().then((result) => {
-          client.sendMail({
-            from: "noreplybostonpizza@gmail.com",
-            to: user.email,
-            subject: "Reset Password",
-            html: `
-              <h2> You requested for password reset </h2>
-              <h3> Click <a href="https://boston-pizza.herokuapp.com/#/reset-password/${token}">Link</a> to reset password </h3>
-            `,
-          });
           res.json({ message: "Check your email" });
         });
       });
