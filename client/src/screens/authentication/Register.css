@@ -12,6 +12,7 @@
 
 .register > h3 {
   padding: 20px 0 0 28px;
+  color: var(--font-color);
 }
 
 .register__form {
@@ -62,7 +63,7 @@
 }
 
 .login__user__login:hover {
-  color: yellowgreen;
+  color: var(--theame-color);
 }
 
 @media screen and (max-width: 800px) {
