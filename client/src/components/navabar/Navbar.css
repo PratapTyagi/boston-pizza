@@ -18,6 +18,7 @@
 }
 
 .right > .link > h6 {
+  color: var(--font-color);
   cursor: pointer;
   padding: 30px 10px;
   margin: 0;
@@ -25,7 +26,8 @@
 }
 
 .right > .link > h6:hover {
-  background-color: var(--theame-color);
+  color: var(--theame-color);
+  transition: color 0.3s ease-out;
 }
 
 .right > .link > .cart {
@@ -36,8 +38,8 @@
 }
 
 .right > .link > .cart:hover {
-  background-color: var(--theame-color);
-  transition: background-color 0.9s ease-out;
+  color: var(--theame-color);
+  transition: color 0.3s ease-out;
 }
 
 .dropdown-toggle {
@@ -48,9 +50,8 @@
 }
 
 .dropdown-toggle:hover {
-  background-color: var(--theame-color);
-  transition: background-color 0.9s ease-out;
-  color: whitesmoke;
+  color: var(--theame-color);
+  transition: color 0.3s ease-out;
 }
 
 .dropdown-menu {

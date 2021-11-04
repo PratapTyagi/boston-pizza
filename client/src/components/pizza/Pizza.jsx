@@ -36,7 +36,7 @@ const Pizza = ({ pizza }) => {
 
   return (
     <div className="pizza">
-      <h1>{pizza.name}</h1>
+      <h4>{pizza.name}</h4>
       <img
         className="pizza__image"
         src={pizza.image}

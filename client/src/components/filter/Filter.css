@@ -3,6 +3,7 @@
   width: 80%;
   margin: 0 auto;
   background-color: rgb(21, 20, 20);
+  border-radius: 10px;
 }
 
 .filter__inner {
