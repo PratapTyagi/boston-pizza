@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios from "../axios";
+
 export const getAllPizza = () => async (dispatch) => {
   dispatch({ type: "GET_PIZZAS_REQUEST" });
 
@@ -15,7 +16,10 @@ export const filterPizza = (query, category) => async (dispatch) => {
   let filteredPizza;
 
   try {
-    const {data}  = await axios.post("/api/pizzas/filter-pizza", {query, category});
+    const { data } = await axios.post("/api/pizzas/filter-pizza", {
+      query,
+      category,
+    });
     dispatch({ type: "GET_PIZZAS_SUCCESS", payload: data });
   } catch (error) {
     dispatch({ type: "GET_PIZZAS_FAILED", payload: error });

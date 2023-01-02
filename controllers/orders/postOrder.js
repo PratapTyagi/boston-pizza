@@ -44,6 +44,7 @@ export const postOrder = async (req, res) => {
       newOrder.save();
       res.status(200).send("Order placed");
     } else res.status(400).send("Something went wrong");
-  } catch (error) {}
-  res.status(400).send({ message: "Something went wrong" });
+  } catch (error) {
+    res.status(400).send({ message: "Something went wrong" });
+  }
 };

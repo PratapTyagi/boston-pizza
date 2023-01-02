@@ -3,12 +3,14 @@ import dotenv from "dotenv";
 dotenv.config();
 import path from "path";
 import mongoose from "mongoose";
+import cors from "cors";
 
 import pizzaRoute from "./routes/pizzaRoute.js";
 import userRoute from "./routes/userRoute.js";
 import order from "./routes/orders.js";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

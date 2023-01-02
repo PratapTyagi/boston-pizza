@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-import axios from "axios";
+import axios from "../../axios";
 
 const NewPassword = () => {
   const [password, setpassword] = useState("");

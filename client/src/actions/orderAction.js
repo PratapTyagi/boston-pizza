@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios from "../axios";
+
 export const placeOrder = (token, subtotal) => async (dispatch, getState) => {
   dispatch({ type: "PLACE_ORDER_REQUEST" });
   const username = getState().loginUserReducer.currentUser;
