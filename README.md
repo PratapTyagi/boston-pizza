@@ -1,7 +1,7 @@
 # Boston pizza
 
 ## `Link`
-https://boston-pizza.herokuapp.com/
+https://boston-pizza.onrender.com/
 
 ## `Description`
 - It has user authentication
